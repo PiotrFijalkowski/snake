@@ -1,7 +1,9 @@
-<center>
-    <h2>Score: <span id="Score"></span> <br></h2>
-<canvas id="gc" width="400" height="400"></canvas>
-</center>
+<body style="background-color: #2b2b2b; color: white;">
+    <center>
+        <h2>Score: <span id="Score"></span> <br></h2>
+    <canvas id="gc" width="400" height="400" style="border: 1px solid #686868"></canvas>
+    </center>
+</body>
 
 <script>
 window.onload=function() {
@@ -18,7 +20,7 @@ gs=tc=20;
 ax=ay=15;
 xv=yv=0;
 trail=[];
-tail = 1;
+tail = 5;
 function game() {
     px+=xv;
     py+=yv;
@@ -41,7 +43,7 @@ function game() {
     for(var i=0;i<trail.length;i++) {
         ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
         if(trail[i].x==px && trail[i].y==py) {
-            tail = 1;
+            tail = 5;
             score.innerHTML = 0;
         }
     }
@@ -51,7 +53,7 @@ function game() {
     }
     if (ax==px && ay==py) {
         tail++;
-        score.innerHTML = this.tail-1;
+        score.innerHTML = this.tail-5;
         ax=Math.floor(Math.random()*tc);
         ay=Math.floor(Math.random()*tc);        
     }
